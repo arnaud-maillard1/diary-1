@@ -18,6 +18,13 @@ void version() {
  * -> Tableau de chaînes de caractères
  */
 int main(int argc, char *argv[]) {
+#if 0 // Ne faites jamais ça !!!
+    printf("%s", argv[132]);
+#else // On test toujours si l'argument existe !
+    const int arg = 132;
+    if (argc > arg) printf("%s", argv[arg]);
+#endif
+
     // Traite les options sur les arguments
     for (int i = 0; i < argc; i++) {
         if (strcmp(argv[i], "--version") == 0) {
