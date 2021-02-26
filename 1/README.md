@@ -13,8 +13,8 @@
 
 ### Vendredi
 
-- [ ] Git / GitHub
-- [ ] Ouvrir plusieurs fichiers
+- [x] Git / GitHub
+- [x] Ouvrir plusieurs fichiers
 - [ ] Comment naviguer dans un fichier
 - [ ] Ce qui se passe derrière quand on manipule des fichiers
 - [ ] Différents types de fichiers
@@ -57,10 +57,34 @@ gcc source.c
 - Git c'est logiciel de gestion de version (SCM)
 - GitHub c'est une plateforme de stockage de référentiels Git sur Internet
 
-```
+```sh
 git clone git@github.com:info2-tin-b/diary.git
 git commit -am "Commentaire"
 git push
 git status
 git pull --rebase
+git checkout .
+git checkout file.c
+```
+
+Un bon livre : https://git-scm.com/book/en/v2
+
+## Exemple
+
+```c
+/*
+./phonetics input.txt [output.txt]
+      0         1          2
+*/
+
+FILE *fout = argc > 1 ? fopen(argv[2], "w") : stdout;
+
+
+FILE *fout = stdout;
+if (argc > 1) {
+    fout = fopen(argv[2], "w")
+}
+
+fprintf(fout, "quelque chose");
+
 ```
