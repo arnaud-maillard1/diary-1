@@ -52,3 +52,15 @@ gcc source.c
 3. Édition des liens
 4. Production de l'exécutable (génère un ELF)
 
+## Notes sur Git
+
+- Git c'est logiciel de gestion de version (SCM)
+- GitHub c'est une plateforme de stockage de référentiels Git sur Internet
+
+```
+git clone git@github.com:info2-tin-b/diary.git
+git commit -am "Commentaire"
+git push
+git status
+git pull --rebase
+```
