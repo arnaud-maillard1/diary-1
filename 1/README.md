@@ -13,6 +13,11 @@
 
 ### Vendredi
 
+- [ ] Git / GitHub
+- [ ] Ouvrir plusieurs fichiers
+- [ ] Comment naviguer dans un fichier
+- [ ] Ce qui se passe derrière quand on manipule des fichiers
+- [ ] Différents types de fichiers
 
 ## Support de cours
 
