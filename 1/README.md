@@ -1,11 +1,18 @@
 # Semaine 1/16
 
+## Plan
+
+### Mercredi
+
 - [x] Points administratifs
 - [x] Liens vers les supports de cours
 - [x] Mise à niveau
 - [x] Arguments
 - [x] La ligne de commande avec `gcc -E`
-- [ ] Lecture de fichiers
+- [x] Lecture de fichiers
+
+### Vendredi
+
 
 ## Support de cours
 
