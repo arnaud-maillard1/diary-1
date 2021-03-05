@@ -12,6 +12,8 @@
 0011001100001000 01110000 111000111 00001100 11110011 00011001 1001100011010100110000110111000000 00 0  00000
    'h'     'e'        'l'     'l'      'o'   ^
 
+Le système de fichiers dispose de propriétés liées aux fichiers :
+
 - taille du fichier
 - adresse de début (emplacement)
 - fichier
@@ -23,18 +25,38 @@
 - date de création et de modification
 - drapeau (flag) exécutable
 
-/ (origine)
-|- home/
-   |- yves/
-      |- .gitconfig
+Les fichiers sont organisés dans une arborescence :
+
+```
+.
+├── 1
+│   ├── README.md
+│   ├── a.out
+│   ├── albatros.txt
+│   ├── argument.c
+│   ├── argument.s
+│   ├── copy.c
+│   ├── file.c
+│   ├── foo.xlsx
+│   ├── fp.c
+│   └── hook_bar.c
+```
 
 ## Chemins
 
+Chemins absolus:
+
+```
 /home/yves/.gitconfig  (chemin absolu)
 C:\Users\yves\.gitconfig
+```
 
-yves/.gitignore (chemin relatif)
+Chemins relatifs:
+
+```
+yves/.gitignore
 yves\.gitconfig
+```
 
 ## À retenir
 
