@@ -41,7 +41,7 @@ int print_vowel(FILE *fp) {
  * @return true si il y eu une erreur
  */
 bool open_file(char *filename, FILE **fp) {
-    *fp = fopen("hello.txt", "r");
+    *fp = fopen(filename, "r");
     return *fp == NULL;
 }
 
