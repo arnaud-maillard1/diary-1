@@ -19,3 +19,11 @@
 double array[10];
 const size_t size = sizeof(array) / sizeof(array[0]);
 ```
+
+## Lecture avec sscanf
+
+```c
+int value;
+char string[] = "42";
+sscanf(string, "%d", &value);
+```
