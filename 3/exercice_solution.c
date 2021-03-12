@@ -14,14 +14,16 @@
 #include <ctype.h>
 #include <string.h>
 
+typedef struct Stats {
+    size_t size; // Taille d'un fichier
+    size_t sum; // Somme des chiffres dans ce fichier
+    size_t digits; // Nombre de chiffres dans ce fichier
+} Stats;
 
-
-void display_size(size_t size, FILE *fp) {
-    fprintf(fp, "Taille : %ld bytes\n", size);
-}
-
-void display_sum(size_t sum, FILE *fp) {
-    fprintf(fp, "Somme des chiffres : %ld\n", sum);
+void display_stats(Stats stats, FILE *fp) {
+    fprintf(fp, "Somme des chiffres : %ld\n", stats.sum);
+    fprintf(fp, "Taille : %ld bytes\n", stats.size);
+    fprintf(fp, "Nombre de chiffres : %ld", stats.digits);
 }
 
 /**
@@ -42,7 +44,7 @@ bool open_file(char *filename, FILE **fp) {
  * @param fp Fichier d'entrée
  * @return La taille du fichier
  */
-size_t compute_size(FILE *fp) {
+size_t compute_size(FILE *fp, Stats *stats) {
     size_t pos = ftell(fp); // Store cursor position
 
     fseek(fp, 0, SEEK_END);
@@ -50,6 +52,9 @@ size_t compute_size(FILE *fp) {
 
     fseek(fp, pos, SEEK_SET); // Restore cursor position
 
+    if (stats != NULL) {
+        stats->size = size;
+    }
     return size;
 }
 
@@ -59,18 +64,25 @@ size_t compute_size(FILE *fp) {
  * @param fp Un fichier d'entrée
  * @return La somme des chiffres du fichier
  */
-int compute_sum(FILE *fp) {
+int compute_sum(FILE *fp, Stats *stats) {
     if (fp == NULL)
         return 0;
 
     int sum = 0;
+    stats->digits = 0;
     while(!feof(fp)) {
         char c = fgetc(fp);
         if (isdigit(c)) {
+            stats->digits++;
             int digit = c - '0';
             sum += digit;
         }
     }
+
+    if (stats != NULL) {
+        stats->sum = sum;
+    }
+
     return sum;
 }
 
@@ -120,6 +132,8 @@ int main(int argc, char *argv[]) {
     }
 
     // Programme principal
-    display_size(compute_size(fp), stdout);
-    display_sum(compute_sum(fp), stdout);
+    Stats stats = {0};
+    compute_size(fp, &stats);
+    compute_sum(fp, &stats);
+    display_stats(stats, stdout);
 }
