@@ -6,8 +6,9 @@
   - [x] détecter la taille d'un fichier
   - [x] somme des chiffres dans ce fichier
 
-- [ ] correction exercice
-- [ ] lecture des arguments
+- [x] correction exercice
+- [x] lecture des arguments
+
 - [ ] pointeurs
 
 ## Exemples vus aujourd'hui
