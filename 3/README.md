@@ -2,9 +2,13 @@
 
 - [x] fseek, appels systèmes (strace), ouvrir et fermer des fichiers
 - [x] fonction de traitement de chaîne de caractères
-- [ ] exercice
-  - [ ] détecter la taille d'un fichier
-  - [ ] somme des chiffres dans ce fichier
+- [x] exercice
+  - [x] détecter la taille d'un fichier
+  - [x] somme des chiffres dans ce fichier
+
+- [ ] correction exercice
+- [ ] lecture des arguments
+- [ ] pointeurs
 
 ## Exemples vus aujourd'hui
 
