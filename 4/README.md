@@ -1,54 +1,36 @@
 # Semaine 4/16
 
-- [ ] Écriture et lecture de fichiers binaires
-  - [ ] Alignement mémoire et navigation
-  - [ ] Écriture de structures
-- [ ] Pointeurs (suite)
-  - [ ] Arithmétique de pointeurs
-  - [ ] Priorité des opérations sur les pointeurs
-  - [ ] Exercices
+- [x] Théorie sur les typedefs structures
+- [x] Écriture et lecture de fichiers binaires
+  - [x] Écriture de structures
+  - [x] Alignement mémoire et navigation
 
-## Exercice 1 : pointeurs
+## Résumé du cours
 
-Considérez que chaque ligne est exécutée l'une après l'autre. Indiquez dans la colonne les différentes valeurs des variables :
+- Typedefs et structures voir [fichier](typedefs.c)
+- Écrire un fichier CSV [csv.c](csv.c)
+- Écrire un fichier binaire [binary_write.c](binary_write.c)
+- Décoder avec hexdump : `hexdump -C output.dat`
+- Lire un fichier binaire [binary_read.c](binary_read.c)
+- Écrire du binaire sur `stdout`: [binary_write_stdout.c](binary_write_stdout.c)
+- Lire à un offset dans un fichier binaire : [binary_read_third.c](binary_read_third.c)
 
-| Code            | A   | B   | C   | P1  | P2  |
-| --------------- | --- | --- | --- | --- | --- |
-| `int A = 1;`    |     |     |     |     |     |
-| `int B = 2;`    |     |     |     |     |     |
-| `int C = 3;`    |     |     |     |     |     |
-| `int *P1, *P2;` |     |     |     |     |     |
-| `P1=&A;`        |     |     |     |     |     |
-| `P2=&C;`        |     |     |     |     |     |
-| `*P1=(*P2)++;`  |     |     |     |     |     |
-| `P1=P2;`        |     |     |     |     |     |
-| `P2=&B;`        |     |     |     |     |     |
-| `*P1-=*P2;`     |     |     |     |     |     |
-| `++*P2;`        |     |     |     |     |     |
-| `*P1*=*P2;`     |     |     |     |     |     |
-| `A=++*P2**P1;`  |     |     |     |     |     |
-| `P1=&A;`        |     |     |     |     |     |
-| `*P2=*P1/=*P2;` |     |     |     |     |     |
-
-## Exercices 2 : pointeurs
-
-Considérez ces déclarations :
+## Notes
 
 ```c
-int A[] = {12, 23, 34, 45, 56, 67, 78, 89, 90};
-int *P;
-P = A;
+if (fscanf(fp, "%4d,%lf", &year, &temp) == 0) {
+    char c;
+    while((c = fgetc(fp)) != '\n' || c != EOF) {}
+};
+
+#define LINE 1024
+char buffer[LINE];
+while(fgets(buffer, LINE, fp) != NULL) {
+    int year;
+    double temp;
+    if (sscanf(buffer, "%4d,%lf", &year, &temp) == 0) {
+        continue;
+    }
+    printf("Année: %d, Température %f", year, temp);
+}
 ```
-
-Quelles valeurs ou adresses fournissent ces expressions ?
-
-| Code               | Valeur |
-| ------------------ | ------ |
-| `*P+2`             |        |
-| `*(P+2)`           |        |
-| `&A[4]-3`          |        |
-| `A+3`              |        |
-| `&A[7]-P`          |        |
-| `P+(*P-10)`        |        |
-| `*(P+*(P+8)-A[7])` |        |
-
