@@ -1,3 +1,3 @@
-# Journal de cours
+# Journal du cours
 
-Semaine par semaine
+Informatique 2, deuxième semestre EEM/EAI/EN
